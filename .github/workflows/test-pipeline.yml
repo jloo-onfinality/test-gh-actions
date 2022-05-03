@@ -1,0 +1,25 @@
+name: "test"
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/workflows/**'
+
+jobs:
+  test:
+    name: "test-pipeline"
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v2
+    
+    - name: Configure AWS credentials from Test account
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::902066978923:role/subquery-faucet-github-actions-role
+
+    - name: test aws command
+      run: |
+        aws sts get-caller-identity
+    
