@@ -25,4 +25,5 @@ jobs:
     - name: test aws command
       run: |
         aws sts get-caller-identity
+        aws eks describe-cluster --name sy-cluster
     
