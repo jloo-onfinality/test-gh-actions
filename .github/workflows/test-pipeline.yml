@@ -19,7 +19,7 @@ jobs:
     - name: Configure AWS credentials from Test account
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/subquery-faucet-github-actions-role
+        role-to-assume: arn:aws:iam::902066978923:role/subquery-faucet-github-actions-role
         aws-region: ap-southeast-2
 
     - name: test aws command
